@@ -46,7 +46,7 @@ function Login() {
             <p>
                 By signing-in you agree to the Clam-zone Conditions of Use & Sale. Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
             </p>
-            <button onClick={register} className='login__registerButton'>Create your Amazon account</button>
+            <button onClick={register} className='login__registerButton'>Create your Clam-Zone account</button>
         </div>
     </div>
   )
