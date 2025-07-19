@@ -4,16 +4,97 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 1500px;
+    background-color: #eaeded; /* Amazon's light grey background */
+    padding-bottom: 20px; /* Consistent padding at the bottom */
 }
+
+.home__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
 .home__row {
     display: flex;
-    z-index: 1;
-    margin-left: 5px;
-    margin-right: 5px;
+    z-index: 1; /* Ensures products float above the banner's masked area */
+    margin: 0 10px; /* Consistent horizontal margin on both sides of the rows */
+    justify-content: center; /* Centers the products within the row */
+    flex-wrap: wrap; /* Allows products to wrap to the next line on smaller screens */
+    gap: 20px; /* Space between products in a row (both horizontal and vertical) */
+    margin-bottom: 20px; /* Space between product rows */
 }
-.home__image {
-    width: 100%;
-    z-index: -1;
-    margin-bottom: -150px;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+
+/* Specific styling for the Product component, assuming it's a direct child of home__row */
+/* This is often handled within the Product.css, but for a global layout feel, it's here */
+.home__row > .product {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* Pushes content to the bottom, useful for varied product heights */
+    max-height: 400px; /* Example max height for products */
+    min-width: 100px;
+    width: 100%; /* Default to 100% to allow flex-wrap to size them */
+    flex: 1; /* Allows items to grow and shrink */
+    min-width: 250px; /* Minimum width for product card before wrapping */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05); /* Subtle shadow for definition */
+    border-radius: 8px; /* Slightly rounded corners */
+}
+
+
+/* Keyframe for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments for a more Amazon-like flow */
+@media (max-width: 1200px) {
+    .home__image {
+        margin-bottom: -5vw; /* Adjust overlap for medium screens */
+    }
+    .home__row {
+        gap: 15px;
+        margin: 0 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .home__image {
+        margin-bottom: -40px; /* Fixed smaller overlap for tablets */
+        max-height: 250px;
+    }
+    .home__row {
+        flex-direction: column; /* Stack products vertically on smaller screens */
+        align-items: center; /* Center stacked products */
+        gap: 20px; /* Consistent space when stacked */
+        margin: 0 10px;
+    }
+    .home__row > .product {
+        max-width: 90%; /* Products take more width when stacked */
+        min-width: unset; /* Remove min-width to allow more flexibility */
+    }
+}
+
+@media (max-width: 480px) {
+    .home__image {
+        margin-bottom: -20px; /* Even smaller overlap for mobile */
+        max-height: 180px;
+    }
+    .home {
+        padding-bottom: 10px;
+    }
+    .home__row {
+        margin: 0 5px;
+        gap: 15px;
+    }
+    .home__row > .product {
+        padding: 15px;
+    }
 }

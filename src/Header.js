@@ -16,14 +16,14 @@ function Header() {
   return (
     <div className='header'>
         <Link to="/">
-        <img className="header_logo" src='/banner0.png' />
+        <img className="header_logo" src='/banner0.png' alt="Amazon Logo" />
         </Link>
         <div className="header__search">
-          <input className="header__searchInput" type="text" />
+          <input className="header__searchInput" type="text" placeholder="Search Amazon" />
           <SearchIcon className="header__searchIcon" />
         </div>
         <div className="header__nav">
-        <Link to={!user && '/login'}>
+        <Link to={!user && '/login'} className="header__clearlink">
           <div onClick={handleAuthentication} className='header__option'>
             <span className='header__optionLineOne'>Hello {!user ? 'Guest' : user.email}</span>
             <span className='header__optionLineTwo'>{user ? 'Sign Out' : 'Sign In'}</span>
@@ -37,10 +37,10 @@ function Header() {
             <span className='header__optionLineOne'>Your</span>
             <span className='header__optionLineTwo'>Prime</span>
           </div>
-          <Link to="/checkout">
+          <Link to="/checkout" className="header__clearlink">
           <div className="header__optionBasket">
             <ShoppingBasketIcon />
-            <span className="header__optionLineTwo header__basketCount">{basket?.length}</span>
+            <span className="header__basketCount">{basket?.length}</span>
           </div>
           </Link>
         </div>

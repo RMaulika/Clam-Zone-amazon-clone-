@@ -2,58 +2,173 @@
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #131921;
+    background-color: #232F3E; /* Darker blue-grey for a modern feel */
     position: sticky;
     top: 0;
     z-index: 100;
+    padding: 0 20px; /* Add some horizontal padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
+
 .header_logo {
-    width: 100px;
+    width: 90px; /* Slightly smaller logo */
     object-fit: contain;
-    margin: 0 20px;
-    margin-top: 18px;
+    margin-right: 20px; /* Spacing from search bar */
+    margin-top: 0; /* Remove top margin */
 }
+
 .header__search {
     display: flex;
     flex: 1;
     align-items: center;
-    border-radius: 24px;
+    border-radius: 5px; /* Softer corners */
+    overflow: hidden; /* Ensures search icon stays within bounds */
+    background-color: #fff; /* White background for search bar */
+    transition: all 0.2s ease-in-out; /* Smooth transition for focus */
 }
+
+.header__search:focus-within {
+    box-shadow: 0 0 0 3px #F9B826; /* Amazon-like focus highlight */
+}
+
 .header__searchInput {
-    height: 12px;
-    padding: 10px;
+    height: 38px; /* Taller input field */
+    padding: 0 15px; /* More padding inside */
     border: none;
     width: 100%;
+    font-size: 15px; /* Larger font size */
+    outline: none; /* Remove default outline */
+    color: #333; /* Darker text for readability */
 }
+
 .header__searchIcon {
-    padding: 5px;
-    height: 22px !important;
-    background-color: #cd9042;
+    padding: 8px; /* More padding */
+    height: 100% !important; /* Fill parent height */
+    background-color: #F9B826; /* Brighter orange, Amazon's accent color */
+    color: #131921; /* Dark icon for contrast */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 }
+
+.header__searchIcon:hover {
+    background-color: #f7a800; /* Slightly darker orange on hover */
+}
+
+.header__nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; /* Align items vertically */
+    margin-left: 20px; /* Spacing from search bar */
+}
+
+.header__option {
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px; /* More consistent spacing */
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.header__option:hover {
+    opacity: 0.8; /* Subtle hover effect */
+}
+
 .header__optionLineOne {
-    font-size: 10px;
+    font-size: 12px; /* Slightly larger for better readability */
+    line-height: 1.2; /* Adjust line height */
+    margin-bottom: 2px; /* Small space between lines */
 }
-.header__optionLinrTwo {
-    font-size: 13px;
-    font-weight: 800;
+
+.header__optionLineTwo {
+    font-size: 14px; /* Slightly larger and more prominent */
+    font-weight: 700; /* Slightly less bold, but still strong */
 }
+
 .header__optionBasket {
     display: flex;
     align-items: center;
     color: white;
+    margin-left: 15px; /* Spacing for the basket */
+    position: relative; /* For badge positioning */
 }
+
 .header__basketCount {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 8px; /* Closer to the icon */
+    font-size: 14px;
+    font-weight: 700;
+    color: #F9B826; /* Orange for the count */
 }
-.header__nav {
-    display: flex;
-    justify-content: space-evenly;
+
+/* Optional: Add a small badge for the basket count for a more modern look */
+/* You might need to adjust positioning based on your icon size */
+.header__optionBasket .MuiSvgIcon-root {
+    font-size: 28px !important; /* Larger basket icon */
 }
-.header__option {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    margin-right: 10px;
-    color: white;
+
+.header__clearlink {
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header {
+        padding: 0 10px;
+        height: 50px; /* Slightly smaller header on small screens */
+    }
+
+    .header_logo {
+        width: 70px;
+        margin-right: 10px;
+    }
+
+    .header__searchInput {
+        height: 30px;
+        font-size: 13px;
+        padding: 0 10px;
+    }
+
+    .header__searchIcon {
+        padding: 6px;
+    }
+
+    .header__nav {
+        margin-left: 10px;
+    }
+
+    .header__option {
+        margin: 0 8px;
+    }
+
+    .header__optionLineOne {
+        font-size: 10px;
+    }
+
+    .header__optionLineTwo {
+        font-size: 12px;
+    }
+
+    .header__optionBasket .MuiSvgIcon-root {
+        font-size: 24px !important;
+    }
+
+    .header__basketCount {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header__nav {
+        display: none; /* Hide nav items on very small screens, or consider a hamburger menu */
+    }
+
+    .header {
+        justify-content: space-between;
+    }
+
+    .header__search {
+        flex: none; /* Do not flex */
+        width: 100%; /* Take full width */
+        margin: 0 10px;
+    }
 }

@@ -1,0 +1,120 @@
+.adBanner {
+    display: flex;
+    justify-content: space-between; /* Distribute space between content and image */
+    align-items: center; /* Vertically center content */
+    background: linear-gradient(to right, #232F3E, #4a6382); /* Darker gradient for premium feel */
+    color: white;
+    padding: 30px 40px; /* Generous padding */
+    margin: 20px 10px; /* Consistent margin with home rows */
+    border-radius: 8px; /* Softly rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    overflow: hidden; /* Ensures image doesn't overflow */
+    max-width: 1500px; /* Matches home container width */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* For absolute positioning of elements if needed */
+}
+
+.adBanner__content {
+    flex: 1; /* Allow content to take available space */
+    padding-right: 30px; /* Space between text and image */
+}
+
+.adBanner__content h2 {
+    font-size: 2.2em; /* Larger, bolder heading */
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+.adBanner__content p {
+    font-size: 1.1em; /* Readable body text */
+    line-height: 1.5;
+    margin-bottom: 25px;
+    opacity: 0.9; /* Slightly less opaque */
+}
+
+.adBanner__button {
+    background-color: #F9B826; /* Amazon orange */
+    color: #131921; /* Dark text for contrast */
+    border: none;
+    padding: 12px 25px; /* Comfortable button padding */
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 25px; /* Pill-shaped button */
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effects */
+    letter-spacing: 0.5px; /* Slight letter spacing */
+}
+
+.adBanner__button:hover {
+    background-color: #f7a800; /* Darker orange on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.adBanner__imageContainer {
+    flex-shrink: 0; /* Prevent image from shrinking */
+    width: 300px; /* Fixed width for the image container */
+    height: 250px; /* Fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.adBanner__imageContainer img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures the entire image is visible within its container */
+    border-radius: 5px; /* Slight border-radius for the image */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .adBanner {
+        flex-direction: column; /* Stack content and image vertically */
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .adBanner__content {
+        padding-right: 0;
+        margin-bottom: 25px; /* Space between stacked elements */
+    }
+
+    .adBanner__content h2 {
+        font-size: 1.8em;
+    }
+
+    .adBanner__content p {
+        font-size: 1em;
+    }
+
+    .adBanner__imageContainer {
+        width: 100%; /* Image takes full width */
+        height: auto; /* Adjust height automatically */
+        max-width: 280px; /* Constrain max width for image on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .adBanner {
+        padding: 20px 15px;
+        margin: 15px 5px;
+    }
+
+    .adBanner__content h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .adBanner__content p {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+
+    .adBanner__button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}

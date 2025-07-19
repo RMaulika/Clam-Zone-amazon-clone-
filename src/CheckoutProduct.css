@@ -1,27 +1,57 @@
 .checkoutProduct {
     display: flex;
     margin-top: 20px;
-    margin-bottom: 20px;   
-}
-.checkoutProdcut__info {
-    padding-left: 20px;
-}
-.checkoutProduct__info > button {
+    margin-bottom: 20px;
+    background-color: white; /* Added for better visual separation */
+    border: 1px solid #ddd; /* Added a subtle border */
+    border-radius: 5px; /* Slightly rounded corners */
+    padding: 15px; /* Added some padding */
+    align-items: center; /* Vertically align items */
+  }
+  
+  .checkoutProduct__image {
+    object-fit: contain;
+    width: 180px;
+    height: 180px;
+    margin-right: 20px; /* Added space between image and info */
+  }
+  
+  .checkoutProduct__info {
+    flex: 1; /* Allows the info section to take up available space */
+    padding-left: 0; /* Removed this as margin-right on image handles spacing */
+  }
+  
+  .checkoutProduct__title {
+    font-size: 1.1rem; /* Slightly larger font for title */
+    font-weight: 700; /* Adjusted font weight */
+    margin-bottom: 8px; /* Space below title */
+  }
+  
+  .checkoutProduct__price {
+    margin-bottom: 8px; /* Space below price */
+  }
+  
+  .checkoutProduct__rating {
+    display: flex;
+    margin-bottom: 10px; /* Space below rating */
+  }
+  
+  .checkoutProduct__rating p {
+    margin-right: 2px; /* Small space between stars */
+  }
+  
+  .checkoutProduct__info > button {
     background: #f0c14b;
     border: 1px solid;
     margin-top: 10px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
-}
-.checkoutProduct__image {
-    object-fit: contain;
-    width: 180px;
-    height: 180px;
-}
-.checkoutProduct__rating {
-    display: flex;
-}
-.checkoutProduct__title {
-    font-size: 17px;
-    font-weight: 800;
-}
+    padding: 8px 15px; /* Added padding to the button */
+    border-radius: 3px; /* Slightly rounded button */
+    cursor: pointer; /* Indicate it's clickable */
+    transition: background-color 0.2s ease; /* Smooth hover effect */
+  }
+  
+  .checkoutProduct__info > button:hover {
+    background-color: #e4b848; /* Darker yellow on hover */
+  }

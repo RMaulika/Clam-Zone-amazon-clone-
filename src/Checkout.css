@@ -1,18 +1,138 @@
 .checkout {
-    display: flex;
-    padding: 20px;
-    background-color: white;
-    height: max-content;
+  display: flex;
+  padding: 20px;
+  background-color: #EAEDED; /* Amazon's light grey background */
+  min-height: calc(100vh - 60px); /* Adjust height to fill screen, assuming header is 60px */
+  gap: 20px; /* Space between left and right sections */
+  max-width: 1500px; /* Max width for the entire checkout page */
+  margin: 0 auto; /* Center the checkout page */
 }
+
+.checkout__left {
+  flex: 0.7; /* Takes up more space than the right side */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px; /* Slightly rounded corners for the main content area */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /* Subtle shadow */
+}
+
+.checkout__right {
+  flex: 0.3; /* Takes up less space */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  height: fit-content; /* Ensures it only takes as much height as its content */
+  position: sticky; /* Makes subtotal stick on scroll */
+  top: 80px; /* Distance from the top when sticky, considering header height */
+  align-self: flex-start; /* Aligns the sticky element to the start of the cross-axis */
+}
+
 .checkout__ad {
   width: 100%;
-  max-height: 250px;
-  object-fit: contain;
-  margin-bottom: 10px;
+  max-height: 120px; /* Reduced height for a more typical banner ad look */
+  object-fit: cover; /* Changed to cover to fill space better */
+  margin-bottom: 20px; /* Increased margin below ad */
+  border-radius: 4px; /* Slightly rounded corners for the ad */
   display: block;
 }
+
+.checkout__userGreeting {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #565959; /* Muted color for the greeting */
+}
+
 .checkout__title {
-    margin-right: 10px;
+  margin-bottom: 20px; /* More space below the title */
+  padding-bottom: 10px; /* Keeps padding at the bottom for the border */
+  border-bottom: 1px solid #DDD; /* Slightly darker border for distinction */
+  font-weight: 700; /* Bolder title */
+  font-size: 28px; /* Larger font size */
+  color: #0F1111; /* Darker text for main titles */
+}
+
+/* Styles for empty basket message */
+.checkout__empty {
+  padding: 30px;
+  text-align: center;
+  color: #666;
+  font-size: 1.1em;
+  border: 1px dashed #CCC;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: #FDFDFD;
+}
+
+.checkout__empty p:first-child {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 992px) {
+  .checkout {
+    flex-direction: column; /* Stack sections vertically on medium screens */
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .checkout__left,
+  .checkout__right {
+    flex: auto; /* Take full width */
+    width: 100%;
+    padding: 15px;
+  }
+
+  .checkout__ad {
+    max-height: 100px;
+    margin-bottom: 15px;
+  }
+
+  .checkout__right {
+    position: static; /* Remove sticky on mobile for better flow */
+    margin-top: 0; /* No extra margin when stacked, gap handles it */
+  }
+
+  .checkout__title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .checkout__userGreeting {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .checkout {
     padding: 10px;
-    border-bottom: 1px solid lightgray;
+    gap: 10px;
+  }
+
+  .checkout__left,
+  .checkout__right {
+    padding: 10px;
+  }
+
+  .checkout__ad {
+    max-height: 80px;
+    margin-bottom: 10px;
+  }
+
+  .checkout__title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .checkout__userGreeting {
+    font-size: 14px;
+  }
+
+  .checkout__empty {
+    padding: 20px;
+    font-size: 1em;
+  }
 }

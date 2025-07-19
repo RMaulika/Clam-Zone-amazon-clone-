@@ -5,30 +5,50 @@ import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
 
 function Checkout() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket, user }] = useStateValue(); // Removed dispatch if not directly used here
+
   return (
     <div className='checkout'>
-        <div className="checkout__left">
-            <img className="checkout__ad" src="/banner8.png" alt="" />
-            <div>
-                <h3>Hello, {user?.email}</h3>
-                <h2 className="checkout__title">Your shopping Basket</h2>
-                {basket.map(item => (
-                  <CheckoutProduct
-                  id={item.id}
-                  title={item.title}
-                  image={item.image}
-                  price={item.price}
-                  rating={item.rating}
-                  />
-                ))}
+      <div className="checkout__left">
+        <img
+          className="checkout__ad"
+          src="/banner8.png"
+          alt="Checkout Advertisement" // Added alt text
+        />
+
+        <div>
+          {/* User greeting */}
+          <h3 className="checkout__userGreeting">Hello, {user?.email || 'Guest'}</h3>
+
+          {/* Shopping Basket Title */}
+          <h2 className="checkout__title">Your Shopping Basket</h2>
+
+          {/* Render Checkout Products */}
+          {basket.length === 0 ? (
+            <div className="checkout__empty">
+              <p>Your Shopping Basket is empty.</p>
+              <p>Select "Proceed to checkout" to purchase items.</p>
             </div>
+          ) : (
+            basket.map((item, index) => ( // Added index for key, though item.id is better if unique
+              <CheckoutProduct
+                key={item.id || index} // Use item.id as key if unique, fallback to index
+                id={item.id}
+                title={item.title}
+                image={item.image}
+                price={item.price}
+                rating={item.rating}
+              />
+            ))
+          )}
         </div>
-        <div className="checkout__right">
-          <Subtotal />
-        </div>
+      </div>
+
+      <div className="checkout__right">
+        <Subtotal />
+      </div>
     </div>
-  )
+  );
 }
 
-export default Checkout
+export default Checkout;
