@@ -10,6 +10,7 @@ import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import { promise } from './stripePromise';
 import { Elements } from "@stripe/react-stripe-js";
+import Footer from "./Footer";
 // No longer import Adbanner here, it will be moved into Home.js
 
 const Payment = lazy(() => import('./Payment'));
@@ -47,7 +48,7 @@ function App() {
     <Router>
       <div className="app">
         <Header /> {/* Header remains on all pages */}
-        
+
         <Routes>
           <Route
             path="/orders"
@@ -85,6 +86,7 @@ function App() {
             }
           />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

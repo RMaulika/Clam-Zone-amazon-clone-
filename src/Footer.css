@@ -1,0 +1,275 @@
+/* Footer.css */
+
+.footer {
+    background-color: #232F3E; /* Main dark blue-grey background */
+    color: #DDDDDD; /* Light grey text for general content */
+    font-family: 'Amazon Ember', Arial, sans-serif; /* Mimicking Amazon's font */
+    font-size: 13px;
+    line-height: 1.5;
+    min-width: 320px; /* Ensures footer doesn't get too small on tiny screens */
+}
+
+/* Back to Top Section */
+.footer__backToTop {
+    background-color: #37475A; /* Slightly lighter dark blue */
+    padding: 15px 0;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle top border */
+}
+
+.footer__backToTop:hover {
+    background-color: #485769; /* Darker on hover */
+}
+
+.footer__backToTop span { /* Use span to make text distinct from potential link */
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px; /* Slightly larger text */
+}
+
+/* Main Footer Links Sections */
+.footer__main {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 1200px; /* Slightly wider content area */
+    margin: 0 auto;
+    padding: 40px 20px;
+    border-bottom: 1px solid #3a4553; /* Subtle divider */
+    gap: 30px; /* Space between columns */
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+}
+
+.footer__column {
+    flex: 1;
+    min-width: 180px; /* Increased min-width for better readability */
+    max-width: 250px; /* Max width for individual columns */
+    margin: 0; /* Remove old column margin, gap handles it */
+    padding: 10px 0; /* Add some internal padding */
+}
+
+.footer__column h3 {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px; /* More space below headings */
+    text-transform: capitalize; /* Ensure consistent casing */
+}
+
+.footer__column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__column ul li {
+    margin-bottom: 8px; /* Consistent spacing for list items */
+}
+
+.footer__column ul li a {
+    color: #DDDDDD;
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+    font-size: 13px; /* Ensure consistent font size */
+}
+
+.footer__column ul li a:hover {
+    color: #FF9900; /* Amazon orange on hover */
+    text-decoration: underline;
+}
+
+/* Bottom Footer - Logo & Legal */
+.footer__bottom {
+    background-color: #131A22; /* Darkest blue for the very bottom */
+    padding: 25px 20px 30px; /* Adjusted padding */
+    text-align: center;
+    display: flex; /* Use flex to align logo and selectors */
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px; /* Align with main content width */
+    margin: 0 auto;
+}
+
+.footer__bottom-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
+    align-items: center;
+    gap: 20px; /* Space between logo and selectors */
+    margin-bottom: 25px; /* Space before legal links */
+}
+
+.footer__logo {
+    width: 76px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Makes a colored logo white for dark background */
+}
+
+.footer__language-currency {
+    display: flex;
+    gap: 10px; /* Space between language and currency selectors */
+    flex-wrap: wrap; /* Allow selectors to wrap */
+    justify-content: center;
+}
+
+.footer__select {
+    background-color: transparent;
+    border: 1px solid #888;
+    color: #DDDDDD;
+    padding: 8px 10px;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23ddd"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px top 50%;
+    background-size: 12px;
+    transition: border-color 0.2s ease;
+    outline: none; /* Remove default focus outline */
+}
+.footer__select:hover {
+    border-color: #DDDDDD; /* Lighter border on hover */
+}
+.footer__select:focus {
+    border-color: #FF9900; /* Amazon orange on focus */
+    box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.5); /* Subtle glowing effect */
+}
+
+.footer__select option {
+    background-color: #232F3E; /* Dark background for dropdown options */
+    color: white;
+}
+
+
+.footer__legal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.footer__legal ul li {
+    margin: 0 8px; /* Consistent horizontal margin */
+    white-space: nowrap; /* Prevent links from breaking mid-word */
+}
+.footer__legal ul li:not(:last-child)::after {
+    content: "|";
+    color: #999;
+    margin-left: 8px;
+}
+
+
+.footer__legal ul li a {
+    color: #DDDDDD;
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.footer__legal ul li a:hover {
+    color: #FF9900;
+    text-decoration: underline;
+}
+
+.footer__legal p {
+    color: #999999;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) { /* Adjust for larger tablets and smaller desktops */
+    .footer__main {
+        padding: 30px 20px;
+        gap: 20px;
+    }
+    .footer__column {
+        min-width: unset; /* Allow more flexibility */
+        max-width: 220px;
+    }
+}
+
+
+@media (max-width: 768px) { /* Adjust for tablets */
+    .footer__main {
+        flex-direction: column; /* Stack columns vertically */
+        align-items: center; /* Center columns */
+        padding: 30px 15px;
+        gap: 25px; /* Space between stacked columns */
+    }
+
+    .footer__column {
+        width: 100%;
+        max-width: 300px; /* Max width for stacked columns */
+        text-align: center;
+    }
+
+    .footer__column ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__bottom {
+        padding: 20px 15px 25px;
+    }
+
+    .footer__bottom-content {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    .footer__language-currency {
+        flex-direction: row; /* Keep language/currency side by side */
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) { /* Adjust for mobile phones */
+    .footer__backToTop {
+        padding: 10px 0;
+        font-size: 11px;
+    }
+
+    .footer__main {
+        padding: 20px 10px;
+    }
+
+    .footer__column h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .footer__column ul li a {
+        font-size: 12px;
+    }
+
+    .footer__bottom {
+        padding: 15px 10px 20px;
+    }
+
+    .footer__legal ul {
+        flex-direction: column; /* Stack legal links */
+        gap: 5px;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+    .footer__legal ul li {
+        margin: 0;
+    }
+    .footer__legal ul li:not(:last-child)::after {
+        content: none; /* Remove separator when stacked */
+    }
+
+    .footer__legal p {
+        font-size: 10px;
+    }
+}
