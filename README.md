@@ -30,6 +30,14 @@ cd functions
 npm install
 ```
 
+## Test Stripe Card
+Use this card for testing payments:
+
+Card Number: 4242 4242 4242 4242
+Exp: Any future date
+CVV: Any 3 digits
+
+
 ## Available Scripts
 
 In the project directory, you can run:
