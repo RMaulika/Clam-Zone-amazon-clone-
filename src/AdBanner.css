@@ -1,120 +1,152 @@
-.adBanner {
-    display: flex;
-    justify-content: space-between; /* Distribute space between content and image */
-    align-items: center; /* Vertically center content */
-    background: linear-gradient(to right, #232F3E, #4a6382); /* Darker gradient for premium feel */
-    color: white;
-    padding: 30px 40px; /* Generous padding */
-    margin: 20px 10px; /* Consistent margin with home rows */
-    border-radius: 8px; /* Softly rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
-    overflow: hidden; /* Ensures image doesn't overflow */
-    max-width: 1500px; /* Matches home container width */
-    margin-left: auto;
-    margin-right: auto;
-    position: relative; /* For absolute positioning of elements if needed */
+/* AdBanner.css */
+
+.adBanner-carousel-container {
+  width: 100%;
+  max-width: 1500px; /* Aligns with your Home component's max-width */
+  margin: 0 auto; /* Center the container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden; /* Ensure content doesn't overflow */
+  background-color: #EAEDED; /* Amazon's typical light grey background */
+  padding-bottom: 20px; /* Add some padding at the bottom */
+  position: relative; /* For z-indexing products below it later */
 }
 
-.adBanner__content {
-    flex: 1; /* Allow content to take available space */
-    padding-right: 30px; /* Space between text and image */
+/* Main Carousel Section */
+.adBanner-carousel__section {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Stack content if added below image, otherwise row */
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  z-index: 0;
 }
 
-.adBanner__content h2 {
-    font-size: 2.2em; /* Larger, bolder heading */
-    margin-bottom: 15px;
-    font-weight: 700;
-    line-height: 1.2;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+.adBanner-carousel__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  min-height: 500px; /* Minimum height for the carousel area */
+  position: relative;
+  background-color: #f8f8f8; /* Light background for the image area */
 }
 
-.adBanner__content p {
-    font-size: 1.1em; /* Readable body text */
-    line-height: 1.5;
-    margin-bottom: 25px;
-    opacity: 0.9; /* Slightly less opaque */
+.adBanner-carousel__nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  color: white;
+  padding: 15px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 2em; /* Large arrows */
+  z-index: 10; /* Ensure buttons are above the image */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  user-select: none; /* Prevent text selection on button */
 }
 
-.adBanner__button {
-    background-color: #F9B826; /* Amazon orange */
-    color: #131921; /* Dark text for contrast */
-    border: none;
-    padding: 12px 25px; /* Comfortable button padding */
-    font-size: 1em;
-    font-weight: 600;
-    border-radius: 25px; /* Pill-shaped button */
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effects */
-    letter-spacing: 0.5px; /* Slight letter spacing */
+.adBanner-carousel__nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.75);
+  transform: translateY(-50%) scale(1.05); /* Slight scale on hover */
 }
 
-.adBanner__button:hover {
-    background-color: #f7a800; /* Darker orange on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+.adBanner-carousel__nav-button--left {
+  left: 10px;
 }
 
-.adBanner__imageContainer {
-    flex-shrink: 0; /* Prevent image from shrinking */
-    width: 300px; /* Fixed width for the image container */
-    height: 250px; /* Fixed height */
+.adBanner-carousel__nav-button--right {
+  right: 10px;
+}
+
+.adBanner-carousel__image-area {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;   
+  }
+  
+
+.adBanner-carousel__spinner-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white overlay */
+  z-index: 5;
 }
 
-.adBanner__imageContainer img {
+/* Pure CSS Spinner Animation */
+.adBanner-carousel__spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #F9B826; /* Amazon orange */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.adBanner-carousel__image {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Ensures the entire image is visible within its container */
-    border-radius: 5px; /* Slight border-radius for the image */
+    width: auto;
+    height: auto;
+    position: relative; /* ← remove absolute positioning */
+    margin: auto;
+    display: block;
+  }
+  
+
+.adBanner-carousel__image--loading {
+  opacity: 0; /* Hide image while loading */
 }
 
 /* Responsive adjustments */
-@media (max-width: 992px) {
-    .adBanner {
-        flex-direction: column; /* Stack content and image vertically */
-        text-align: center;
-        padding: 30px 20px;
-    }
-
-    .adBanner__content {
-        padding-right: 0;
-        margin-bottom: 25px; /* Space between stacked elements */
-    }
-
-    .adBanner__content h2 {
-        font-size: 1.8em;
-    }
-
-    .adBanner__content p {
-        font-size: 1em;
-    }
-
-    .adBanner__imageContainer {
-        width: 100%; /* Image takes full width */
-        height: auto; /* Adjust height automatically */
-        max-width: 280px; /* Constrain max width for image on smaller screens */
-    }
+@media (max-width: 1024px) {
+  .adBanner-carousel__image-area {
+    max-height: 400px;
+  }
 }
 
-@media (max-width: 576px) {
-    .adBanner {
-        padding: 20px 15px;
-        margin: 15px 5px;
-    }
+@media (max-width: 768px) {
+  .adBanner-carousel-container {
+    padding-bottom: 15px;
+  }
+  .adBanner-carousel__image-area {
+    min-height: 250px;
+    max-height: 350px;
+  }
+  .adBanner-carousel__nav-button {
+    padding: 10px 8px;
+    font-size: 1.5em;
+  }
+}
 
-    .adBanner__content h2 {
-        font-size: 1.5em;
-        margin-bottom: 10px;
-    }
-
-    .adBanner__content p {
-        font-size: 0.9em;
-        margin-bottom: 20px;
-    }
-
-    .adBanner__button {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
+@media (max-width: 480px) {
+  .adBanner-carousel-container {
+    padding-bottom: 10px;
+  }
+  .adBanner-carousel__image-area {
+    min-height: 200px;
+    max-height: 280px;
+  }
+  .adBanner-carousel__nav-button {
+    padding: 8px 6px;
+    font-size: 1.2em;
+  }
 }
