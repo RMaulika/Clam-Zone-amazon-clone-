@@ -11,7 +11,7 @@ app.get("/", (req, res) => res.status(200).send("ClamZone Payments API is runnin
 app.post("/payments/create", async (req, res) => {
   const total = Number(req.query.total);
   console.log("Payment Request Received for amount >>> ", total);
-  if (isNaN(total)) {
+  if (isNaN(total)) { 
     return res.status(400).send({error: "Invalid total amount"});
   }
   try {
